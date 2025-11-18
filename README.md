@@ -2,7 +2,9 @@
 
 # 🚀 CRM Profesional
 
-**Sistema CRM completo con inbox omnicanal, gestión de tickets, panel de técnicos y automatización**
+**CRM para gestión de negocios de telecomunicaciones**
+
+Sistema CRM completo con inbox omnicanal, gestión de tickets, panel de técnicos y automatización diseñado específicamente para empresas del sector de telecomunicaciones.
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
@@ -21,7 +23,7 @@
 
 ## 📋 Descripción del Proyecto
 
-CRM Profesional es un sistema integral de gestión de relaciones con clientes diseñado para empresas que requieren una solución completa para manejar conversaciones omnicanal, tickets de soporte, gestión de técnicos de campo y automatización de procesos.
+CRM Profesional es un sistema integral de gestión de relaciones con clientes diseñado específicamente para **empresas de telecomunicaciones** que requieren una solución completa para manejar conversaciones omnicanal, tickets de soporte técnico, gestión de técnicos de campo, instalaciones, mantenimientos y automatización de procesos del sector telecomunicaciones.
 
 ### 🎯 Características Principales
 
