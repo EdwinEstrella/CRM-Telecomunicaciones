@@ -17,6 +17,12 @@ Sistema CRM completo con inbox omnicanal, gestión de tickets, panel de técnico
 
 📧 Email: edwinestrella67@gmail.com
 
+---
+
+### 🏷️ Tags
+
+`#CRM` `#Telecomunicaciones` `#NextJS` `#React` `#TypeScript` `#PostgreSQL` `#SistemaGestion` `#InboxOmnicanal` `#Tickets` `#Tecnicos` `#Automatizacion` `#TelecomunicacionesCRM` `#GestionClientes` `#SoporteTecnico` `#PanelTecnicos` `#WhatsApp` `#Instagram` `#Messenger` `#Chatbot` `#IA` `#OpenAI` `#N8N` `#SocketIO` `#TiempoReal` `#Dashboard` `#Analytics` `#Reportes` `#Prisma` `#NextAuth` `#TailwindCSS` `#ShadcnUI`
+
 </div>
 
 ---

@@ -1,30 +1,50 @@
 PROPIEDAD INTELECTUAL Y LICENCIA DE USO RESTRICTIVA
+TODOS LOS DERECHOS RESERVADOS
 
 Copyright (c) 2024 Edwin Estrella
 Email: edwinestrella67@gmail.com
 GitHub: EdwinEstrella
 
-Todos los derechos reservados.
+═══════════════════════════════════════════════════════════════════════════════
 
-PROHIBICIONES EXPRESAS:
+⚠️ ADVERTENCIA LEGAL IMPORTANTE ⚠️
 
-1. PROHIBICIÓN DE REVENTA Y DISTRIBUCIÓN
+Este software y su código fuente son de PROPIEDAD PRIVADA y están protegidos por
+derechos de autor. NO se permite el uso, copia, modificación, distribución ni
+venta del software sin permiso explícito y por escrito del propietario.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+PROHIBICIONES EXPRESAS Y ABSOLUTAS:
+
+1. PROHIBICIÓN TOTAL DE REVENTA, DISTRIBUCIÓN Y COMERCIALIZACIÓN
    Este software y su código fuente son de propiedad exclusiva de Edwin Estrella.
-   Queda estrictamente prohibido:
+   Queda ESTRICTAMENTE PROHIBIDO bajo cualquier circunstancia:
    - Vender, revender, alquilar, arrendar o comercializar este software o cualquier parte del mismo
-   - Distribuir, compartir, transferir o ceder este software a terceros
-   - Utilizar este software para fines comerciales sin autorización expresa por escrito
-   - Crear productos derivados basados en este software para su comercialización
+   - Distribuir, compartir, transferir, ceder o entregar este software a terceros
+   - Utilizar este software para fines comerciales, educativos o de cualquier tipo sin autorización expresa por escrito
+   - Crear productos derivados basados en este software para su comercialización o distribución
+   - Ofrecer este software como servicio (SaaS) sin autorización
+   - Incluir este código en otros proyectos comerciales o no comerciales
 
-2. PROHIBICIÓN DE MODIFICACIÓN Y DERIVADOS
-   Queda prohibido:
+2. PROHIBICIÓN ABSOLUTA DE MODIFICACIÓN, COPIA Y DERIVADOS
+   Queda ESTRICTAMENTE PROHIBIDO:
+   - Copiar, duplicar o reproducir este software en cualquier forma o medio
    - Modificar, alterar, adaptar o crear obras derivadas de este software
    - Descompilar, desensamblar o realizar ingeniería inversa del software
-   - Eliminar o alterar cualquier aviso de derechos de autor o propiedad
+   - Eliminar o alterar cualquier aviso de derechos de autor, marca de agua o propiedad
+   - Extraer partes del código para uso en otros proyectos
+   - Crear forks o bifurcaciones del proyecto sin autorización
 
-3. PROHIBICIÓN DE USO NO AUTORIZADO
-   Este software es de uso personal y privado. Cualquier uso que no sea expresamente
-   autorizado por el propietario está prohibido.
+3. PROHIBICIÓN TOTAL DE USO NO AUTORIZADO
+   Este software es de uso EXCLUSIVO y PRIVADO del propietario. 
+   Cualquier uso, visualización, ejecución o acceso que no sea expresamente
+   autorizado por escrito por el propietario está ESTRICTAMENTE PROHIBIDO.
+   Esto incluye pero no se limita a:
+   - Uso personal, educativo, comercial o de cualquier tipo
+   - Visualización del código fuente
+   - Ejecución del software
+   - Acceso a funcionalidades del software
 
 4. PROPIEDAD INTELECTUAL
    Todos los derechos de propiedad intelectual, incluyendo pero no limitándose a:
@@ -41,11 +61,15 @@ PROHIBICIONES EXPRESAS:
    El código fuente y toda la información relacionada con este proyecto son
    confidenciales y no deben ser divulgados a terceros sin autorización expresa.
 
-6. SANCIONES POR INCUMPLIMIENTO
-   El incumplimiento de cualquiera de estas condiciones puede resultar en:
-   - Acciones legales civiles y penales
-   - Reclamación de daños y perjuicios
+6. SANCIONES LEGALES POR INCUMPLIMIENTO
+   El incumplimiento de cualquiera de estas condiciones constituye una violación
+   de los derechos de propiedad intelectual y puede resultar en:
+   - Acciones legales civiles y penales inmediatas
+   - Reclamación de daños y perjuicios económicos y morales
    - Cese inmediato del uso del software
+   - Multas y sanciones según la legislación aplicable
+   - Responsabilidad por violación de derechos de autor
+   - Prohibición permanente de uso de cualquier software del propietario
 
 AUTORIZACIÓN DE USO:
 
