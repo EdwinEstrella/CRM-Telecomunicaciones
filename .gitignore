@@ -121,8 +121,8 @@ deployment/
 
 # Documentation sensible
 DEPLOY.md
-SECURITY.md
 CONFIGURACION_PROXY.md
+# Nota: SECURITY.md se mantiene en el repositorio (es reconocido por GitHub)
 
 # Lock files (opcional - descomentar si no quieres versionarlos)
 # package-lock.json
