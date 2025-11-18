@@ -1,0 +1,24 @@
+{
+  "name": "crm-professional-system",
+  "version": "1.0.0",
+  "description": "CRM Profesional Completo con inbox omnicanal, tickets, técnicos y automatización",
+  "private": true,
+  "workspaces": [
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "start": "turbo run start",
+    "lint": "turbo run lint"
+  },
+  "devDependencies": {
+    "turbo": "^2.6.1"
+  },
+  "packageManager": "npm@10.0.0",
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  }
+}
+

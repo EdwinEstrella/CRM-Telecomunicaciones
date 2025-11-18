@@ -1,0 +1,302 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User model
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String
+  avatar    String?
+  role      String   @default("admin")
+  isActive  Boolean  @default(true) @map("isactive")
+  createdAt DateTime @default(now()) @map("createdat")
+  updatedAt DateTime @updatedAt @map("updatedat")
+
+  // Relations
+  userRoles UserRoles[] @relation("UserRoles")
+  createdTickets Ticket[] @relation("CreatedTickets")
+  assignedTickets Ticket[] @relation("AssignedTickets")
+  assignedConversations Conversation[] @relation("AssignedConversations")
+  notifications Notification[]
+
+  @@map("users")
+}
+
+
+// Role model
+model Role {
+  id          String       @id @default(uuid())
+  name        String       @unique
+  description String?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  // Relations
+  userRoles UserRoles[] @relation("RoleUsers")
+  rolePermissions RolePermission[]
+
+  @@map("roles")
+}
+
+// UserRoles join table
+model UserRoles {
+  userId String
+  roleId String
+  user   User   @relation("UserRoles", fields: [userId], references: [id], onDelete: Cascade)
+  role   Role   @relation("RoleUsers", fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@id([userId, roleId])
+  @@map("user_roles")
+}
+
+// Permission model
+model Permission {
+  id          String              @id @default(uuid())
+  name        String              @unique
+  description String?
+  action      PermissionAction
+  resource    PermissionResource
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+
+  // Relations
+  rolePermissions RolePermission[]
+
+  @@map("permissions")
+}
+
+enum PermissionAction {
+  CREATE
+  READ
+  WRITE
+  UPDATE
+  DELETE
+  ASSIGN
+  VIEW
+  EDIT
+}
+
+enum PermissionResource {
+  INBOX
+  TICKETS
+  USERS
+  REPORTS
+  SETTINGS
+  AUTOMATION
+}
+
+// RolePermission join table
+model RolePermission {
+  roleId       String
+  permissionId String
+  role         Role         @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission   Permission   @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, permissionId])
+  @@map("role_permissions")
+}
+
+// Contact model
+model Contact {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  phone     String?
+  avatar    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  tickets Ticket[]
+  conversations Conversation[]
+
+  @@map("contacts")
+}
+
+// Ticket model
+model Ticket {
+  id                    String           @id @default(uuid())
+  title                 String
+  description           String
+  status                TicketStatus     @default(OPEN)
+  priority              TicketPriority   @default(MEDIUM)
+  createdAt             DateTime         @default(now())
+  updatedAt             DateTime         @updatedAt
+
+  // Relations
+  customerId            String
+  customer              Contact          @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  assignedToTechnicianId String?
+  assignedToTechnician   User?           @relation("AssignedTickets", fields: [assignedToTechnicianId], references: [id])
+
+  createdByAgentId      String?
+  createdByAgent        User?           @relation("CreatedTickets", fields: [createdByAgentId], references: [id])
+
+  // Relations
+  ticketEvents TicketEvent[]
+  ticketAttachments TicketAttachment[]
+
+  @@map("tickets")
+}
+
+enum TicketStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}
+
+enum TicketPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+// TicketEvent model
+model TicketEvent {
+  id        String   @id @default(uuid())
+  ticketId  String
+  userId    String
+  event     String
+  data      Json?
+  createdAt DateTime @default(now())
+
+  // Relations
+  ticket Ticket @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+
+  @@map("ticket_events")
+}
+
+// TicketAttachment model
+model TicketAttachment {
+  id          String   @id @default(uuid())
+  ticketId    String
+  filename    String
+  path        String
+  uploadedBy  String
+  createdAt   DateTime @default(now())
+
+  // Relations
+  ticket Ticket @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+
+  @@map("ticket_attachments")
+}
+
+// Conversation model
+model Conversation {
+  id          String         @id @default(uuid())
+  contactId   String
+  channel     ConversationChannel
+  status      String         @default("active")
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  lastMessageAt DateTime?    @map("lastmessageat")
+
+  // Relations
+  contact Contact @relation(fields: [contactId], references: [id], onDelete: Cascade)
+
+  assignedToId String?
+  assignedTo   User?           @relation("AssignedConversations", fields: [assignedToId], references: [id])
+
+  // Relations
+  messages Message[]
+  conversationNotes ConversationNote[]
+  conversationTags ConversationTag[]
+
+  @@map("conversations")
+}
+
+enum ConversationChannel {
+  EMAIL
+  CHAT
+  WHATSAPP
+  SMS
+}
+
+// Message model
+model Message {
+  id             String   @id @default(uuid())
+  conversationId String
+  content        String
+  direction      String
+  createdAt      DateTime @default(now())
+
+  // Relations
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@map("messages")
+}
+
+// ConversationNote model
+model ConversationNote {
+  id             String   @id @default(uuid())
+  conversationId String
+  content        String
+  createdBy      String
+  createdAt      DateTime @default(now())
+
+  // Relations
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@map("conversation_notes")
+}
+
+// Tag model
+model Tag {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  color     String?
+  createdAt DateTime @default(now())
+
+  // Relations
+  conversationTags ConversationTag[]
+
+  @@map("tags")
+}
+
+// ConversationTag join table
+model ConversationTag {
+  conversationId String
+  tagId           String
+  conversation    Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  tag             Tag           @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([conversationId, tagId])
+  @@map("conversation_tags")
+}
+
+// Notification model
+model Notification {
+  id        String           @id @default(uuid())
+  userId    String
+  title     String
+  message   String
+  type      NotificationType @default(INFO)
+  isRead    Boolean          @default(false)
+  createdAt DateTime         @default(now())
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("notifications")
+}
+
+enum NotificationType {
+  INFO
+  WARNING
+  ERROR
+  SUCCESS
+}
+

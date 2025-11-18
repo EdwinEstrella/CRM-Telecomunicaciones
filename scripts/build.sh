@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo "Building CRM system..."
+
+# Build backend
+echo "Building backend..."
+cd backend
+npm install
+npm run build
+cd ..
+
+# Build frontend
+echo "Building frontend..."
+cd frontend
+npm install
+npm run build
+cd ..
+
+echo "Build completed!"
+
